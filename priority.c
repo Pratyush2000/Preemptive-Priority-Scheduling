@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<conio.h>
-#include<string.h>
+#include<stdlib.h> 
+#include<sys/types.h>
+#include<unistd.h> 
 int main()
 {
     int bt[20],at[10],n,i,j,temp,p[10],st[10],ft[10],wt[10],ta[10],pn[10];
@@ -8,11 +10,13 @@ int main()
     scanf("%d",&n);
     for(i=0; i<n; i++)
     {
-        printf("Enter process number,arrivaltime,burst time & priority:");
-        scanf("%d%d%d%d",&pn[i],&at[i],&bt[i],&p[i]);
+        printf("Enter arrivaltime,burst time & priority:");
+        scanf("%d%d%d",&at[i],&bt[i],&p[i]);
+        pn[i]=i+1;
     }
     for(i=0; i<n; i++)
-        for(j=0; j<n; j++)
+	{
+		for(j=0; j<n; j++)
         {
             if(p[i]<p[j])
             {
@@ -30,11 +34,10 @@ int main()
                 pn[j]=temp;
             }
         }
+	}
     for(i=0; i<n; i++)
- 
-    {
- 
-        if(i==0)
+ 	{
+ 		if(i==0)
         {
             st[i]=at[i];
             wt[i]=st[i]-at[i];
