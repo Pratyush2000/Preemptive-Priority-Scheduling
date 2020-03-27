@@ -10,9 +10,14 @@ int main()
     scanf("%d",&n);
     for(i=0; i<n; i++)
     {
-        printf("Enter arrivaltime,burst time & priority:");
-        scanf("%d%d%d",&at[i],&bt[i],&p[i]);
-        pn[i]=i+1;
+    	pn[i]=i+1;
+		printf("\nProccess %d",pn[i]);
+        printf("\nArrival Time:");
+        scanf("%d",&at[i]);
+        printf("\nBurst Time:");
+        scanf("%d",&bt[i]);
+        printf("\nPriority:");
+        scanf("%d",&p[i]);
     }
     for(i=0; i<n; i++)
 	{
@@ -52,7 +57,7 @@ int main()
             ta[i]=ft[i]-at[i];
         }
     }
-    printf("\nP No.\tarrival time\tburst time\tpriority\twaitingtime\tturn around time");
+    printf("\nP No.\tArrival Time\tBurst Time\tPriority\tWaiting Time\tTurnaround Time");
     for(i=0; i<n; i++)
         printf("\n%d\t%d\t\t%d\t\t%d\t\t%d\t\t%d",pn[i],at[i],bt[i],p[i],wt[i],ta[i]);
     getch();
