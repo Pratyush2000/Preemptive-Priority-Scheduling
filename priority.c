@@ -5,7 +5,7 @@
 #include<unistd.h> 
 int main()
 {
-    int bt[20],at[10],n,i,j,temp,p[10],st[10],ft[10],wt[10],ta[10],pn[10];
+    int bt[20],at[10],n,i,j,k,l,sum=0,temp,p[10],st[10],ft[10],wt[10],ta[10],pn[10];
     printf("Enter the number of process:");
     scanf("%d",&n);
     for(i=0; i<n; i++)
@@ -23,9 +23,9 @@ int main()
 	{
 		for(j=0; j<n; j++)
         {
-            if(p[i]<p[j])
+            if(p[i]<p[j] && at[i]<=at[j])
             {
-                temp=p[i];
+				temp=p[i];
                 p[i]=p[j];
                 p[j]=temp;
                 temp=at[i];
@@ -37,6 +37,17 @@ int main()
                 temp=pn[i];
                 pn[i]=pn[j];
                 pn[j]=temp;
+                for(k=0;k<=bt[i];k++)
+                {
+                	sum=sum+1;
+                	if(sum%2==1)
+                	{
+                		for(l=i+1;l<n;l++)
+                		{
+                			p[l]=p[l]-1;
+						}
+					}
+				}
             }
         }
 	}
