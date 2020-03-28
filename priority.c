@@ -37,10 +37,12 @@ int main()
                 temp=pn[i];
                 pn[i]=pn[j];
                 pn[j]=temp;
-                for(k=0;k<=bt[i];k++)
+            }
+        }
+        for(k=0;k<=bt[i];k++)
                 {
                 	sum=sum+1;
-                	if(sum%2==1)
+                	if(sum%2==0)
                 	{
                 		for(l=i+1;l<n;l++)
                 		{
@@ -48,8 +50,6 @@ int main()
 						}
 					}
 				}
-            }
-        }
 	}
     for(i=0; i<n; i++)
  	{
@@ -68,8 +68,13 @@ int main()
             ta[i]=ft[i]-at[i];
         }
     }
-    printf("\nP No.\tArrival Time\tBurst Time\tPriority\tWaiting Time\tTurnaround Time");
+    printf("________________________________________________________________________________________");
+    printf("\n|P No.\tArrival Time\tBurst Time\tPriority\tWaiting Time\tTurnaround Time |");
     for(i=0; i<n; i++)
-        printf("\n%d\t%d\t\t%d\t\t%d\t\t%d\t\t%d",pn[i],at[i],bt[i],p[i],wt[i],ta[i]);
+    {
+    	printf("\n|---------------------------------------------------------------------------------------|");
+    	printf("\n|%d\t|%d\t\t|%d\t\t|%d\t\t|%d\t\t|%d\t\t|",pn[i],at[i],bt[i],p[i],wt[i],ta[i]);
+	}
+	printf("\n|_______________________________________________________________________________________|");
     getch();
 }
